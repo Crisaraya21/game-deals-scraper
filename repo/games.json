@@ -1,0 +1,2244 @@
+[
+    {
+        "title": "The Witcher 3: Wild Hunt",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2015,
+        "genre": "RPG"
+    },
+    {
+        "title": "Cyberpunk 2077",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2020,
+        "genre": "RPG"
+    },
+    {
+        "title": "Elden Ring",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Hogwarts Legacy",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Red Dead Redemption 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2018,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Minecraft",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2011,
+        "genre": "Sandbox"
+    },
+    {
+        "title": "Fortnite",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 0.0,
+        "release_year": 2017,
+        "genre": "Battle Royale"
+    },
+    {
+        "title": "Grand Theft Auto V",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2013,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Resident Evil 4",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "DOOM Eternal",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2020,
+        "genre": "FPS"
+    },
+    {
+        "title": "Persona 5 Royal",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "JRPG"
+    },
+    {
+        "title": "Monster Hunter Rise",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2021,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Dark Souls III",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2016,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Sekiro: Shadows Die Twice",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2019,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Star Wars Jedi: Survivor",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Star Wars Jedi: Fallen Order",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Call of Duty: Modern Warfare II",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2022,
+        "genre": "FPS"
+    },
+    {
+        "title": "Call of Duty: Black Ops 6",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "FPS"
+    },
+    {
+        "title": "Apex Legends",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 0.0,
+        "release_year": 2019,
+        "genre": "Battle Royale"
+    },
+    {
+        "title": "Overwatch 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 0.0,
+        "release_year": 2022,
+        "genre": "Hero Shooter"
+    },
+    {
+        "title": "Rainbow Six Siege",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2015,
+        "genre": "Tactical Shooter"
+    },
+    {
+        "title": "Destiny 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 0.0,
+        "release_year": 2017,
+        "genre": "FPS"
+    },
+    {
+        "title": "Diablo IV",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Diablo III",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2012,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Assassin's Creed Valhalla",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2020,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Assassin's Creed Odyssey",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2018,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Far Cry 6",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "FPS"
+    },
+    {
+        "title": "Far Cry 5",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2018,
+        "genre": "FPS"
+    },
+    {
+        "title": "Resident Evil Village",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2021,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Resident Evil 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Resident Evil 3",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2020,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Street Fighter 6",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Fighting"
+    },
+    {
+        "title": "Tekken 8",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "Fighting"
+    },
+    {
+        "title": "Mortal Kombat 1",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "Fighting"
+    },
+    {
+        "title": "EA Sports FC 25",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "Sports"
+    },
+    {
+        "title": "NBA 2K25",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "Sports"
+    },
+    {
+        "title": "Forza Horizon 5",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Racing"
+    },
+    {
+        "title": "Gran Turismo 7",
+        "platforms": [
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2022,
+        "genre": "Racing"
+    },
+    {
+        "title": "Mario Kart 8 Deluxe",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2017,
+        "genre": "Racing"
+    },
+    {
+        "title": "The Legend of Zelda: Breath of the Wild",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2017,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "The Legend of Zelda: Tears of the Kingdom",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Super Mario Odyssey",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2017,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Animal Crossing: New Horizons",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2020,
+        "genre": "Simulation"
+    },
+    {
+        "title": "Super Smash Bros. Ultimate",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2018,
+        "genre": "Fighting"
+    },
+    {
+        "title": "Splatoon 3",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Shooter"
+    },
+    {
+        "title": "Metroid Dread",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Metroidvania"
+    },
+    {
+        "title": "Luigi's Mansion 3",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2019,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Xenoblade Chronicles 3",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "JRPG"
+    },
+    {
+        "title": "Fire Emblem Engage",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Strategy RPG"
+    },
+    {
+        "title": "Kirby and the Forgotten Land",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Bayonetta 3",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Hack and Slash"
+    },
+    {
+        "title": "Halo Infinite",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "FPS"
+    },
+    {
+        "title": "Sea of Thieves",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2018,
+        "genre": "Adventure"
+    },
+    {
+        "title": "Grounded",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2022,
+        "genre": "Survival"
+    },
+    {
+        "title": "Palworld",
+        "platforms": [
+            "PC",
+            "Xbox Series"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2024,
+        "genre": "Survival"
+    },
+    {
+        "title": "Control",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Alan Wake 2",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Alan Wake Remastered",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2021,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Dead Space",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Dead Island 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "God of War",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2018,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "God of War Ragnarok",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2022,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "The Last of Us Part I",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2022,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "The Last of Us Part II",
+        "platforms": [
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2020,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Marvel's Spider-Man: Miles Morales",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2020,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Marvel's Spider-Man 2",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Horizon Zero Dawn",
+        "platforms": [
+            "PC",
+            "PS4"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2017,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Horizon Forbidden West",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Ghost of Tsushima",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2020,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Returnal",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Demon's Souls",
+        "platforms": [
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2020,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Ratchet and Clank: Rift Apart",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2021,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Bloodborne",
+        "platforms": [
+            "PS4"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2015,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Death Stranding",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Hollow Knight",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 14.99,
+        "release_year": 2017,
+        "genre": "Metroidvania"
+    },
+    {
+        "title": "Celeste",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2018,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Hades",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 24.99,
+        "release_year": 2020,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Stardew Valley",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 14.99,
+        "release_year": 2016,
+        "genre": "Simulation"
+    },
+    {
+        "title": "Cuphead",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2017,
+        "genre": "Run and Gun"
+    },
+    {
+        "title": "Disco Elysium",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "RPG"
+    },
+    {
+        "title": "Dark Souls Remastered",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2018,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Monster Hunter: World",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2018,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Persona 4 Golden",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2012,
+        "genre": "JRPG"
+    },
+    {
+        "title": "Final Fantasy VII Remake",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2020,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Final Fantasy XVI",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Final Fantasy XIV Online",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2013,
+        "genre": "MMORPG"
+    },
+    {
+        "title": "Baldur's Gate 3",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "RPG"
+    },
+    {
+        "title": "Mass Effect Legendary Edition",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Dragon Age: Inquisition",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2014,
+        "genre": "RPG"
+    },
+    {
+        "title": "Divinity: Original Sin 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 44.99,
+        "release_year": 2017,
+        "genre": "RPG"
+    },
+    {
+        "title": "Ori and the Will of the Wisps",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2020,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Psychonauts 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2021,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Gears 5",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Third-Person Shooter"
+    },
+    {
+        "title": "Microsoft Flight Simulator",
+        "platforms": [
+            "PC",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2020,
+        "genre": "Simulation"
+    },
+    {
+        "title": "Forza Horizon 4",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2018,
+        "genre": "Racing"
+    },
+    {
+        "title": "Dead Cells",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 24.99,
+        "release_year": 2018,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Slay the Spire",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 24.99,
+        "release_year": 2019,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Undertale",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Switch"
+        ],
+        "reference_price": 9.99,
+        "release_year": 2015,
+        "genre": "RPG"
+    },
+    {
+        "title": "Among Us",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 4.99,
+        "release_year": 2018,
+        "genre": "Party"
+    },
+    {
+        "title": "Terraria",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 9.99,
+        "release_year": 2011,
+        "genre": "Sandbox"
+    },
+    {
+        "title": "It Takes Two",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2021,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "A Plague Tale: Requiem",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "A Plague Tale: Innocence",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 44.99,
+        "release_year": 2019,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Outer Wilds",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 24.99,
+        "release_year": 2019,
+        "genre": "Exploration"
+    },
+    {
+        "title": "Tunic",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2022,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Sifu",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2022,
+        "genre": "Action"
+    },
+    {
+        "title": "Ghostrunner",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2020,
+        "genre": "Action"
+    },
+    {
+        "title": "Deathloop",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Action"
+    },
+    {
+        "title": "Prey",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2017,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Dishonored 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2016,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "DOOM (2016)",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2016,
+        "genre": "FPS"
+    },
+    {
+        "title": "Wolfenstein II: The New Colossus",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2017,
+        "genre": "FPS"
+    },
+    {
+        "title": "Metro Exodus",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2019,
+        "genre": "FPS"
+    },
+    {
+        "title": "Titanfall 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2016,
+        "genre": "FPS"
+    },
+    {
+        "title": "Battlefield V",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2018,
+        "genre": "FPS"
+    },
+    {
+        "title": "Battlefield 2042",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "FPS"
+    },
+    {
+        "title": "The Division 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Watch Dogs: Legion",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2020,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Immortals Fenyx Rising",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2020,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Dying Light 2: Stay Human",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Back 4 Blood",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "FPS"
+    },
+    {
+        "title": "Deep Rock Galactic",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2020,
+        "genre": "FPS"
+    },
+    {
+        "title": "Helldivers 2",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2024,
+        "genre": "Third-Person Shooter"
+    },
+    {
+        "title": "Remnant II",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Nioh 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2020,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Dragon's Dogma 2",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Lies of P",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Wo Long: Fallen Dynasty",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Devil May Cry 5",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Hack and Slash"
+    },
+    {
+        "title": "Ghostwire: Tokyo",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Shadow of the Tomb Raider",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2018,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Hitman 3",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Stealth"
+    },
+    {
+        "title": "Starfield",
+        "platforms": [
+            "PC",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "RPG"
+    },
+    {
+        "title": "The Elder Scrolls V: Skyrim",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2011,
+        "genre": "RPG"
+    },
+    {
+        "title": "Fallout 4",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2015,
+        "genre": "RPG"
+    },
+    {
+        "title": "The Outer Worlds",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2019,
+        "genre": "RPG"
+    },
+    {
+        "title": "Valheim",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2021,
+        "genre": "Survival"
+    },
+    {
+        "title": "Subnautica",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2018,
+        "genre": "Survival"
+    },
+    {
+        "title": "No Man's Sky",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2016,
+        "genre": "Survival"
+    },
+    {
+        "title": "Rust",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2018,
+        "genre": "Survival"
+    },
+    {
+        "title": "ARK: Survival Evolved",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2017,
+        "genre": "Survival"
+    },
+    {
+        "title": "Cities: Skylines",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2015,
+        "genre": "City Builder"
+    },
+    {
+        "title": "Planet Zoo",
+        "platforms": [
+            "PC"
+        ],
+        "reference_price": 44.99,
+        "release_year": 2019,
+        "genre": "Simulation"
+    },
+    {
+        "title": "Football Manager 2024",
+        "platforms": [
+            "PC"
+        ],
+        "reference_price": 54.99,
+        "release_year": 2023,
+        "genre": "Sports Simulation"
+    },
+    {
+        "title": "Total War: Warhammer III",
+        "platforms": [
+            "PC"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Strategy"
+    },
+    {
+        "title": "Crusader Kings III",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2020,
+        "genre": "Strategy"
+    },
+    {
+        "title": "Civilization VI",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2016,
+        "genre": "Strategy"
+    },
+    {
+        "title": "XCOM 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2016,
+        "genre": "Strategy"
+    },
+    {
+        "title": "Into the Breach",
+        "platforms": [
+            "PC",
+            "Switch"
+        ],
+        "reference_price": 14.99,
+        "release_year": 2018,
+        "genre": "Strategy"
+    },
+    {
+        "title": "Age of Empires IV",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Strategy"
+    },
+    {
+        "title": "Warhammer 40,000: Darktide",
+        "platforms": [
+            "PC",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2022,
+        "genre": "Action"
+    },
+    {
+        "title": "Hades II",
+        "platforms": [
+            "PC"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2024,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Balatro",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 14.99,
+        "release_year": 2024,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Vampire Survivors",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 4.99,
+        "release_year": 2022,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Risk of Rain 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 24.99,
+        "release_year": 2019,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Rogue Legacy 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 24.99,
+        "release_year": 2022,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Spelunky 2",
+        "platforms": [
+            "PC",
+            "PS4"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2020,
+        "genre": "Roguelike"
+    },
+    {
+        "title": "Ori and the Blind Forest",
+        "platforms": [
+            "PC",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 19.99,
+        "release_year": 2015,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Super Mario Bros. Wonder",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Pikmin 4",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2023,
+        "genre": "Strategy"
+    },
+    {
+        "title": "Pokemon Legends: Arceus",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "RPG"
+    },
+    {
+        "title": "Pokemon Scarlet",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "RPG"
+    },
+    {
+        "title": "Metroid Prime Remastered",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2023,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Donkey Kong Country: Tropical Freeze",
+        "platforms": [
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2014,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Astro Bot",
+        "platforms": [
+            "PS5"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2024,
+        "genre": "Platformer"
+    },
+    {
+        "title": "Final Fantasy VII Rebirth",
+        "platforms": [
+            "PS5"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Silent Hill 2",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2024,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Prince of Persia: The Lost Crown",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2024,
+        "genre": "Metroidvania"
+    },
+    {
+        "title": "Like a Dragon: Infinite Wealth",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "JRPG"
+    },
+    {
+        "title": "Persona 3 Reload",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2024,
+        "genre": "JRPG"
+    },
+    {
+        "title": "Black Myth: Wukong",
+        "platforms": [
+            "PC",
+            "PS5"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2024,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Warhammer 40,000: Space Marine 2",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2024,
+        "genre": "Third-Person Shooter"
+    },
+    {
+        "title": "Banishers: Ghosts of New Eden",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2024,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Tales of Arise",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "JRPG"
+    },
+    {
+        "title": "Scarlet Nexus",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "NieR: Automata",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One",
+            "Switch"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2017,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Assassin's Creed Mirage",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2023,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Avatar: Frontiers of Pandora",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2023,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Marvel's Guardians of the Galaxy",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2021,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Kena: Bridge of Spirits",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2021,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Little Nightmares II",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 29.99,
+        "release_year": 2021,
+        "genre": "Platformer"
+    },
+    {
+        "title": "The Quarry",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2022,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Until Dawn",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2015,
+        "genre": "Survival Horror"
+    },
+    {
+        "title": "Blasphemous 2",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 24.99,
+        "release_year": 2023,
+        "genre": "Metroidvania"
+    },
+    {
+        "title": "Biomutant",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 44.99,
+        "release_year": 2021,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Code Vein",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 59.99,
+        "release_year": 2019,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Judgment",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2019,
+        "genre": "Action Adventure"
+    },
+    {
+        "title": "Like a Dragon: Ishin!",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2023,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Gotham Knights",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 69.99,
+        "release_year": 2022,
+        "genre": "Action RPG"
+    },
+    {
+        "title": "Evil West",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series"
+        ],
+        "reference_price": 49.99,
+        "release_year": 2022,
+        "genre": "Action"
+    },
+    {
+        "title": "New World: Aeternum",
+        "platforms": [
+            "PC",
+            "PS5",
+            "Xbox Series"
+        ],
+        "reference_price": 39.99,
+        "release_year": 2021,
+        "genre": "MMORPG"
+    },
+    {
+        "title": "Warframe",
+        "platforms": [
+            "PC",
+            "PS4",
+            "PS5",
+            "Xbox One",
+            "Xbox Series",
+            "Switch"
+        ],
+        "reference_price": 0.0,
+        "release_year": 2013,
+        "genre": "Action"
+    },
+    {
+        "title": "Path of Exile",
+        "platforms": [
+            "PC",
+            "PS4",
+            "Xbox One"
+        ],
+        "reference_price": 0.0,
+        "release_year": 2013,
+        "genre": "Action RPG"
+    }
+]
