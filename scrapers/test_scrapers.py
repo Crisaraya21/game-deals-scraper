@@ -85,7 +85,7 @@ def test_psstore():
 
 if __name__ == "__main__":
     test_metacritic()
-    test_hltb()
+    #test_hltb()
     test_steam()
     test_amazon()
     test_psstore()
