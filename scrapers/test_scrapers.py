@@ -1,5 +1,8 @@
 from metacritic import scrape_metacritic
 from howlongtobeat import scrape_hltb
+from steam import scrape_steam
+from amazon import scrape_amazon
+from psstore import scrape_psstore
 
 TEST_CASES_METACRITIC = [
     ("The Witcher 3: Wild Hunt", "PC"),
@@ -49,7 +52,41 @@ def test_hltb():
             print(f"   URL          : {result['url']}")
 
 
+def _print_price_result(result):
+    """Imprime los datos de precio de forma legible."""
+    if result is None:
+        print("   Resultado: None")
+    else:
+        print(f"   Tienda   : {result['store']}")
+        print(f"   Precio   : ${result['current_price']}")
+        print(f"   Original : ${result['original_price']}")
+        print(f"   Descuento: {result['discount_pct']}%")
+        print(f"   En oferta: {result['on_sale']}")
+        print(f"   URL      : {result['url']}")
+
+
+def test_steam():
+    separator("STEAM")
+    print("\n→ Hollow Knight")
+    _print_price_result(scrape_steam("Hollow Knight", reference_price=14.99))
+
+
+def test_amazon():
+    separator("AMAZON")
+    print("\n→ Hollow Knight")
+    _print_price_result(scrape_amazon("Hollow Knight"))
+
+
+def test_psstore():
+    separator("PLAYSTATION STORE")
+    print("\n→ Hollow Knight")
+    _print_price_result(scrape_psstore("Hollow Knight"))
+
+
 if __name__ == "__main__":
     test_metacritic()
     test_hltb()
+    test_steam()
+    test_amazon()
+    test_psstore()
     print("\n✓ Pruebas completadas.")  
