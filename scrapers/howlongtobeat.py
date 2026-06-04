@@ -17,7 +17,14 @@ def _get_driver():
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
     )
-    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    import os
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    chromedriver_path = os.path.join(root_dir, "chromedriver.exe")
+    if os.path.exists(chromedriver_path):
+        service = Service(executable_path=chromedriver_path)
+    else:
+        service = Service(ChromeDriverManager().install())
+    return webdriver.Chrome(service=service, options=options)
 
 
 def _parse_time(text: str) -> float | None:

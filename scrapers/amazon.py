@@ -28,7 +28,13 @@ def _get_driver() -> webdriver.Chrome:
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
 
 
-    service = Service(ChromeDriverManager().install())
+    import os
+    root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    chromedriver_path = os.path.join(root_dir, "chromedriver.exe")
+    if os.path.exists(chromedriver_path):
+        service = Service(executable_path=chromedriver_path)
+    else:
+        service = Service(ChromeDriverManager().install())
     return webdriver.Chrome(service=service, options=options)
 
 
