@@ -3,15 +3,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 
 DELAY_SECONDS     = 1.5
-CHROMEDRIVER_PATH = r"C:\game-deals-scraper\chromedriver.exe"
-CHROME_PATH       = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-
 
 def _get_driver():
     options = Options()
-    options.binary_location = CHROME_PATH
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
@@ -20,7 +17,7 @@ def _get_driver():
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
     )
-    return webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=options)
+    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 
 def _parse_time(text: str) -> float | None:
