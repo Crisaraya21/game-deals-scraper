@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Deals Scraper</title>
+  <style>
+/* === Reset & base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #1a1a2e;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  padding: 0 0 60px;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* === Header === */
+.site-header {
+  background: #16213e;
+  border-bottom: 1px solid #2d3748;
+  padding: 20px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px #0006;
+}
+.site-header h1 { font-size: 1.5rem; color: #667eea; margin-bottom: 4px; }
+.site-header p  { font-size: 0.8rem; color: #718096; }
+
+/* === Controls === */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 24px;
+  background: #16213e;
+  border-bottom: 1px solid #2d3748;
+}
+.controls input, .controls select {
+  background: #0f3460;
+  border: 1px solid #2d3748;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.controls input { flex: 1; min-width: 180px; }
+.controls input:focus, .controls select:focus { border-color: #667eea; }
+.controls select { cursor: pointer; }
+#results-count { color: #718096; font-size: 0.85rem; align-self: center; margin-left: auto; }
+
+/* === Metrics === */
+.metrics-section {
+  margin: 24px 24px 0;
+  background: #16213e;
+  border: 1px solid #2d3748;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.metrics-title { font-size: 1rem; color: #a0aec0; margin-bottom: 16px; }
+.metrics-grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.metrics-table { border-collapse: collapse; font-size: 0.88rem; min-width: 240px; }
+.metrics-table th, .metrics-table td {
+  padding: 8px 16px;
+  border: 1px solid #2d3748;
+  text-align: right;
+}
+.metrics-table th { background: #0f3460; color: #a0aec0; text-align: center; }
+.metrics-table td:first-child { text-align: left; color: #a0aec0; }
+.perf-chart { flex: 1; min-width: 280px; max-width: 420px; background: #0f3460; border-radius: 10px; padding: 6px; }
+
+/* === Grid de tarjetas === */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 24px;
+}
+
+/* === Tarjeta === */
+.card {
+  background: #16213e;
+  border: 1px solid #2d3748;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px #0007;
+  border-color: #667eea55;
+}
+.card.hidden { display: none; }
+
+.card-header {
+  padding: 16px 16px 10px;
+  border-bottom: 1px solid #2d374855;
+}
+.game-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.platform-badges { display: flex; flex-wrap: wrap; gap: 4px; }
+
+.card-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+/* === Badges genéricos === */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* plataformas */
+.plat-ps       { background: #003087; color: #fff; }
+.plat-xbox     { background: #107c10; color: #fff; }
+.plat-nintendo { background: #e4000f; color: #fff; }
+.plat-pc       { background: #2a475e; color: #c6d4df; }
+
+/* descuentos */
+.disc-badge { font-size: 0.75rem; padding: 2px 8px; }
+.disc-high  { background: #22543d; color: #68d391; border: 1px solid #48bb78; }
+.disc-mid   { background: #7b341e; color: #fbd38d; border: 1px solid #ed8936; }
+.disc-low   { background: #742a2a; color: #fc8181; border: 1px solid #e53e3e; }
+
+/* best price */
+.best-price-badge { background: #744210; color: #f6e05e; border: 1px solid #d69e2e; }
+
+/* === Precio principal === */
+.price-meta-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.price-section  { flex: 1; }
+.price-row      { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
+.price-current  { font-size: 1.6rem; font-weight: 800; color: #fff; }
+.price-original { font-size: 0.9rem; color: #718096; text-decoration: line-through; }
+
+/* === Tiendas === */
+.store-prices { display: flex; flex-wrap: wrap; gap: 6px; }
+.store-price-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0f3460;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  transition: border-color .15s;
+  cursor: pointer;
+}
+.store-price-item:hover { border-color: #667eea; }
+.store-logo       { color: #a0aec0; font-size: 0.7rem; }
+.store-price-val  { color: #e2e8f0; font-weight: 700; margin-top: 2px; }
+
+/* === Metacritic === */
+.mc-block       { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ms-circle {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; font-weight: 800;
+  border: 3px solid;
+  flex-shrink: 0;
+}
+.ms-green  { background: #22543d; color: #68d391; border-color: #48bb78; }
+.ms-yellow { background: #744210; color: #f6e05e; border-color: #d69e2e; }
+.ms-red    { background: #742a2a; color: #fc8181; border-color: #e53e3e; }
+.ms-none   { background: #2d3748; color: #718096; border-color: #4a5568; font-size: 0.7rem; }
+.user-score { font-size: 0.72rem; color: #a0aec0; }
+
+/* === HLTB === */
+.hltb-block { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.hltb-item  { font-size: 0.78rem; color: #a0aec0; background: #0f3460; padding: 3px 10px; border-radius: 12px; }
+
+/* === Estado vacío === */
+.empty-state { text-align: center; padding: 60px 24px; color: #4a5568; }
+.empty-state h3 { font-size: 1.2rem; margin-bottom: 8px; }
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .site-header h1 { font-size: 1.1rem; }
+  .cards-grid { padding: 12px; gap: 12px; }
+  .metrics-section { margin: 12px 12px 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>🎮 Game Deals Scraper</h1>
+  <p>Generado: 2026-06-08T08:51:28.011662 &nbsp;·&nbsp; 30 juego(s) procesado(s)</p>
+</header>
+
+<div class="controls">
+  <input  id="search-input"   type="search" placeholder="🔍 Buscar por nombre…">
+  <select id="platform-filter">
+    <option value="">Todas las plataformas</option>
+<option value="pc">PC</option>
+<option value="ps4">PS4</option>
+<option value="ps5">PS5</option>
+<option value="switch">Switch</option>
+<option value="xbox one">Xbox One</option>
+<option value="xbox series">Xbox Series</option>
+
+  </select>
+  <select id="sort-select">
+    <option value="">Ordenar por…</option>
+    <option value="discount">Mayor descuento</option>
+    <option value="price">Menor precio</option>
+    <option value="metascore">Mayor Metascore</option>
+  </select>
+  <span id="results-count"></span>
+</div>
+
+
+<section class="metrics-section">
+  <h2 class="metrics-title">⚡ Rendimiento: Lineal vs Paralelo</h2>
+  <div class="metrics-grid">
+    <table class="metrics-table">
+      <thead>
+        <tr><th>Métrica</th><th>Lineal</th><th>Paralelo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tiempo total</td><td>1405.47s</td><td>166.46s</td></tr>
+        <tr><td>Juegos/segundo</td><td>0.02 juegos/s</td><td>0.18 juegos/s</td></tr>
+        <tr><td>Speedup</td><td colspan="2" style="text-align:center">8.44x</td></tr>
+      </tbody>
+    </table>
+    <svg class="perf-chart" viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg">
+      <text x="180" y="18" text-anchor="middle" fill="#a0aec0" font-size="12">Tiempo de ejecución (seg)</text>
+      <!-- Lineal -->
+      <rect x="40" y="30" width="300" height="34" rx="4" fill="#e53e3e"/>
+      <text x="346" y="52" fill="#e2e8f0" font-size="12">1405.47s</text>
+      <text x="30" y="52" text-anchor="end" fill="#a0aec0" font-size="11">Lineal</text>
+      <!-- Paralelo -->
+      <rect x="40" y="76" width="33" height="34" rx="4" fill="#38a169"/>
+      <text x="79" y="98" fill="#e2e8f0" font-size="12">166.46s</text>
+      <text x="30" y="98" text-anchor="end" fill="#a0aec0" font-size="11">Paralelo</text>
+      <!-- Speedup label -->
+      <text x="180" y="132" text-anchor="middle" fill="#667eea" font-size="12">Speedup: 8.44x</text>
+    </svg>
+  </div>
+</section>
+
+<main id="cards-grid" class="cards-grid">
+
+<div class="card"
+     data-title="cyberpunk 2077"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="51.48">
+  <div class="card-header">
+    <h2 class="game-title">Cyberpunk 2077</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-row"><span class="price-current">$51.48</span></div>
+        <div class="store-prices"><a class="store-price-item" href="https://www.amazon.com/-/es/Cyberpunk-2077-Ultimate-PlayStation-5/dp/B0CP2Q75HM" target="_blank" rel="noopener"><span class="store-logo">📦 Amazon</span><span class="store-price-val">$51.48</span></a></div>
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="elden ring"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Elden Ring</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="the witcher 3: wild hunt"
+     data-platforms="pc,ps4,ps5,xbox one,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">The Witcher 3: Wild Hunt</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="hogwarts legacy"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Hogwarts Legacy</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="red dead redemption 2"
+     data-platforms="pc,ps4,xbox one"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Red Dead Redemption 2</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="minecraft"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Minecraft</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="fortnite"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Fortnite</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="grand theft auto v"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Grand Theft Auto V</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="resident evil 4"
+     data-platforms="pc,ps4,ps5,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Resident Evil 4</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="doom eternal"
+     data-platforms="pc,ps4,xbox one,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">DOOM Eternal</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="persona 5 royal"
+     data-platforms="pc,ps4,ps5,xbox series,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Persona 5 Royal</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox Series</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="monster hunter rise"
+     data-platforms="pc,ps4,ps5,xbox series,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Monster Hunter Rise</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox Series</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="dark souls iii"
+     data-platforms="pc,ps4,xbox one"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Dark Souls III</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="star wars jedi: survivor"
+     data-platforms="pc,ps5,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Star Wars Jedi: Survivor</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="star wars jedi: fallen order"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Star Wars Jedi: Fallen Order</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="sekiro: shadows die twice"
+     data-platforms="pc,ps4,xbox one"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Sekiro: Shadows Die Twice</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="call of duty: modern warfare ii"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Call of Duty: Modern Warfare II</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="call of duty: black ops 6"
+     data-platforms="pc,ps5,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Call of Duty: Black Ops 6</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="apex legends"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Apex Legends</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="overwatch 2"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Overwatch 2</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="rainbow six siege"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Rainbow Six Siege</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="destiny 2"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Destiny 2</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="diablo iv"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Diablo IV</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="diablo iii"
+     data-platforms="pc,ps4,xbox one,switch"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Diablo III</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-nintendo">Switch</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="assassin&#x27;s creed valhalla"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Assassin&#x27;s Creed Valhalla</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="assassin&#x27;s creed odyssey"
+     data-platforms="pc,ps4,xbox one"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Assassin&#x27;s Creed Odyssey</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="far cry 6"
+     data-platforms="pc,ps4,ps5,xbox one,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Far Cry 6</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox One</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="far cry 5"
+     data-platforms="pc,ps4,xbox one"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Far Cry 5</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="resident evil village"
+     data-platforms="pc,ps4,ps5,xbox series"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Resident Evil Village</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-ps">PS5</span> <span class="badge plat-xbox">Xbox Series</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+
+<div class="card"
+     data-title="resident evil 2"
+     data-platforms="pc,ps4,xbox one"
+     data-metascore="0"
+     data-discount="0"
+     data-min-price="9999">
+  <div class="card-header">
+    <h2 class="game-title">Resident Evil 2</h2>
+    <div class="platform-badges"><span class="badge plat-pc">PC</span> <span class="badge plat-ps">PS4</span> <span class="badge plat-xbox">Xbox One</span></div>
+  </div>
+  <div class="card-body">
+    <div class="price-meta-row">
+      <div class="price-section">
+        <div class="price-main">N/A</div>
+        
+      </div>
+      <div class="mc-block"><div class="ms-circle ms-none">N/A</div><span class="user-score">User: N/A</span></div>
+    </div>
+    <div class="hltb-block"><span class="hltb-item">🕐 N/A</span></div>
+  </div>
+</div>
+</main>
+
+<div id="empty-state" class="empty-state" style="display:none">
+  <h3>Sin resultados</h3>
+  <p>Prueba con otros filtros.</p>
+</div>
+
+<script>
+(function () {
+  const searchInput   = document.getElementById('search-input');
+  const platformSel   = document.getElementById('platform-filter');
+  const sortSel       = document.getElementById('sort-select');
+  const grid          = document.getElementById('cards-grid');
+  const countEl       = document.getElementById('results-count');
+  const emptyEl       = document.getElementById('empty-state');
+
+  function getCards() {
+    return Array.from(grid.querySelectorAll('.card'));
+  }
+
+  function filter() {
+    const query    = searchInput.value.trim().toLowerCase();
+    const platform = platformSel.value.toLowerCase();
+
+    let visible = getCards().filter(card => {
+      const title     = card.dataset.title || '';
+      const platforms = card.dataset.platforms || '';
+      const matchQ    = !query    || title.includes(query);
+      const matchP    = !platform || platforms.split(',').some(p => p.trim() === platform);
+      return matchQ && matchP;
+    });
+
+    // Ocultar todas primero
+    getCards().forEach(c => c.classList.add('hidden'));
+
+    // Ordenar visibles
+    const sortBy = sortSel.value;
+    visible.sort((a, b) => {
+      if (sortBy === 'discount')  return parseFloat(b.dataset.discount)  - parseFloat(a.dataset.discount);
+      if (sortBy === 'price')     return parseFloat(a.dataset.minPrice)  - parseFloat(b.dataset.minPrice);
+      if (sortBy === 'metascore') return parseFloat(b.dataset.metascore) - parseFloat(a.dataset.metascore);
+      return 0;
+    });
+
+    // Re-append en orden y mostrar
+    visible.forEach(c => {
+      c.classList.remove('hidden');
+      grid.appendChild(c);
+    });
+
+    countEl.textContent = visible.length + ' juego(s) encontrado(s)';
+    emptyEl.style.display = visible.length === 0 ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input',  filter);
+  platformSel.addEventListener('change', filter);
+  sortSel.addEventListener('change',     filter);
+
+  // Inicializar
+  filter();
+})();
+</script>
+</body>
+</html>
